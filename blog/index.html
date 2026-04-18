@@ -1,1 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — armoires</title>
+<meta name="description" content="The armoires POV on wardrobes, styling, and why your closet is a system problem — not a shopping one.">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
 
+  :root{
+    --obsidian:#1a1a1a;
+    --cream:#faf8f5;
+    --neutral-light:#e8e4df;
+    --neutral-medium:#9b9490;
+    --white:#ffffff;
+
+    --burg-deep:#5C1529;
+    --burg:#7B1F3A;
+    --burg-mid:#9B3050;
+
+    --blush-deep:#E8B5A8;
+    --blush:#F2D4CC;
+    --blush-light:#FAF0ED;
+
+    --navy-deep:#0D1B2A;
+    --navy:#1F3D5C;
+    --navy-mid:#2E5F8A;
+
+    --gold:#d4af7d;
+    --gold-deep:#8b7355;
+
+    --serif:'Crimson Text',Georgia,serif;
+    --sans:'Syne',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--cream);
+    color:var(--obsidian);
+    line-height:1.6;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,245,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:0.5px solid var(--neutral-light);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--serif);font-weight:600;font-size:24px;
+    letter-spacing:0.02em;color:var(--obsidian);
+    text-decoration:none;
+  }
+  .nav-links{display:flex;gap:36px;}
+  .nav-links a{
+    font-family:var(--sans);font-size:13px;font-weight:400;
+    color:var(--obsidian);text-decoration:none;
+    letter-spacing:0.02em;
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--burg);}
+  .nav-links a.active{color:var(--burg);font-weight:500;}
+  @media(max-width:720px){.nav-links{display:none;}}
+
+  /* ─── Blog Header ─── */
+  .blog-header{
+    max-width:880px;margin:0 auto;
+    padding:6rem 2rem 4rem;
+    text-align:center;
+  }
+  .eyebrow{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--navy);margin-bottom:1.25rem;
+    display:inline-block;
+  }
+  .blog-header h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.5rem,6vw,4rem);
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    margin-bottom:1.25rem;
+    color:var(--obsidian);
+  }
+  .blog-header h1 .italic{color:var(--burg);font-style:italic;}
+  .blog-header p{
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(1.1rem,1.8vw,1.3rem);
+    color:var(--neutral-medium);
+    max-width:620px;margin:0 auto;
+    line-height:1.5;
+  }
+
+  /* ─── Featured Article ─── */
+  .featured-wrap{
+    max-width:1080px;margin:2rem auto 6rem;
+    padding:0 2rem;
+  }
+  .featured-label{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:1rem;
+    display:inline-block;
+  }
+  .featured{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;
+    background:var(--white);border:0.5px solid var(--neutral-light);
+    border-radius:16px;overflow:hidden;
+    box-shadow:0 2px 12px rgba(0,0,0,0.04);
+    transition:box-shadow 0.3s,transform 0.3s;
+  }
+  .featured:hover{box-shadow:0 12px 40px rgba(13,27,42,0.1);transform:translateY(-2px);}
+  .featured-image{
+    height:100%;min-height:420px;overflow:hidden;
+  }
+  .featured-image img{
+    display:block;width:100%;height:100%;object-fit:cover;
+    transition:transform 0.5s;
+  }
+  .featured:hover .featured-image img{transform:scale(1.03);}
+  .featured-content{padding:3rem 3rem 3rem 0;}
+  .featured-content .tag{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--burg);margin-bottom:1rem;display:inline-block;
+  }
+  .featured-content h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.75rem,3.5vw,2.5rem);
+    line-height:1.1;letter-spacing:-0.01em;
+    margin-bottom:1rem;color:var(--obsidian);
+  }
+  .featured-content .subtitle{
+    font-family:var(--serif);font-style:italic;
+    font-size:1.15rem;color:var(--neutral-medium);
+    margin-bottom:1.75rem;line-height:1.5;
+  }
+  .featured-content .meta{
+    display:flex;align-items:center;gap:0.75rem;
+    font-family:var(--sans);font-size:12px;
+    color:var(--neutral-medium);letter-spacing:0.06em;
+    margin-bottom:2rem;
+  }
+  .featured-content .meta .dot{color:var(--gold);}
+  .featured-content .read-link{
+    font-family:var(--sans);font-size:13px;font-weight:600;
+    color:var(--burg);text-decoration:none;
+    letter-spacing:0.06em;text-transform:uppercase;
+    border-bottom:1px solid var(--burg);
+    padding-bottom:4px;
+    transition:color 0.2s,border-color 0.2s;
+  }
+  .featured-content .read-link:hover{color:var(--burg-deep);border-color:var(--burg-deep);}
+  @media(max-width:820px){
+    .featured{grid-template-columns:1fr;}
+    .featured-image{min-height:240px;aspect-ratio:4/3;}
+    .featured-content{padding:2rem;}
+  }
+
+  /* ─── Coming Soon Cards ─── */
+  .upcoming-section{
+    max-width:1080px;margin:0 auto 6rem;
+    padding:0 2rem;
+  }
+  .upcoming-header{
+    text-align:center;margin-bottom:3rem;
+  }
+  .upcoming-header h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.5rem,3vw,2rem);
+    letter-spacing:-0.01em;
+    color:var(--obsidian);
+  }
+  .upcoming-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;
+  }
+  .upcoming-card{
+    background:var(--blush-light);
+    border-radius:12px;
+    padding:2.5rem;
+    position:relative;
+    transition:background 0.3s;
+  }
+  .upcoming-card:hover{background:var(--blush);}
+  .upcoming-card .coming{
+    font-family:var(--sans);font-size:10px;font-weight:700;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--gold-deep);margin-bottom:1rem;display:inline-block;
+    background:var(--cream);padding:4px 12px;border-radius:20px;
+  }
+  .upcoming-card .tag{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--burg);margin-bottom:0.75rem;display:inline-block;
+  }
+  .upcoming-card h3{
+    font-family:var(--serif);font-weight:600;
+    font-size:1.4rem;line-height:1.2;
+    margin-bottom:0.75rem;color:var(--obsidian);
+    letter-spacing:-0.01em;
+  }
+  .upcoming-card p{
+    font-family:var(--serif);font-style:italic;
+    font-size:1rem;line-height:1.5;color:var(--neutral-medium);
+  }
+  @media(max-width:680px){.upcoming-grid{grid-template-columns:1fr;}}
+
+  /* ─── Newsletter CTA ─── */
+  .newsletter{
+    background:var(--navy-deep);color:var(--cream);
+    padding:5rem 2rem;text-align:center;
+  }
+  .newsletter-inner{max-width:620px;margin:0 auto;}
+  .newsletter .eyebrow{color:var(--gold);}
+  .newsletter h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.75rem,3.5vw,2.5rem);
+    line-height:1.15;margin-bottom:1rem;
+    letter-spacing:-0.01em;
+  }
+  .newsletter h2 .italic{font-style:italic;color:var(--gold);}
+  .newsletter p{
+    font-family:var(--serif);font-size:1.05rem;
+    color:rgba(250,248,245,0.8);max-width:480px;margin:0 auto 2rem;
+    line-height:1.6;
+  }
+  .newsletter-note{
+    font-family:var(--sans);font-size:11px;
+    color:rgba(250,248,245,0.5);
+    letter-spacing:0.08em;text-transform:uppercase;
+    margin-top:1rem;
+  }
+
+  /* ─── Footer ─── */
+  footer{
+    background:var(--navy-deep);color:var(--cream);
+    padding:3rem 2rem;
+  }
+  .footer-inner{
+    max-width:1080px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:1.5rem;
+  }
+  .footer-logo{
+    font-family:var(--serif);font-weight:600;font-size:20px;
+    color:var(--cream);text-decoration:none;
+  }
+  .footer-links{display:flex;gap:28px;flex-wrap:wrap;}
+  .footer-links a{
+    font-size:12px;color:rgba(250,248,245,0.7);
+    text-decoration:none;letter-spacing:0.04em;
+  }
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{
+    font-size:11px;color:rgba(250,248,245,0.5);
+    letter-spacing:0.06em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">armoires</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+    <span></span>
+  </div>
+</nav>
+
+<header class="blog-header">
+  <span class="eyebrow">The armoires POV</span>
+  <h1>Notes on closets, <span class="italic">systems, and style.</span></h1>
+  <p>Essays on why your wardrobe feels broken, what actually fixes it, and the small shifts that turn getting dressed from a daily negotiation into a daily delight.</p>
+</header>
+
+<!-- ─── FEATURED ARTICLE ─── -->
+<div class="featured-wrap">
+  <span class="featured-label">✦ Latest Essay</span>
+  <a href="/blog/the-80-percent-problem/" style="text-decoration:none;color:inherit;">
+    <article class="featured">
+      <div class="featured-image">
+        <img src="/the-80-percent-problem-hero.jpg" alt="A curated flat-lay of folded chinos, a watch, white sneakers, and a tee.">
+      </div>
+      <div class="featured-content">
+        <span class="tag">Wardrobe</span>
+        <h2>The 80% Problem</h2>
+        <p class="subtitle">Or: why you keep wearing the same five things.</p>
+        <div class="meta">
+          <span>6 min read</span>
+          <span class="dot">✦</span>
+          <span>April 2026</span>
+        </div>
+        <span class="read-link">Read the essay →</span>
+      </div>
+    </article>
+  </a>
+</div>
+
+<!-- ─── UPCOMING / COMING SOON ─── -->
+<section class="upcoming-section">
+  <div class="upcoming-header">
+    <h2>More on the way.</h2>
+  </div>
+  <div class="upcoming-grid">
+    <div class="upcoming-card">
+      <span class="coming">Coming Soon</span>
+      <span class="tag">For Creators</span>
+      <h3>The Closet Is the Content</h3>
+      <p>Why your wardrobe is a business asset — and how to treat it like one.</p>
+    </div>
+    <div class="upcoming-card">
+      <span class="coming">Coming Soon</span>
+      <span class="tag">For Stylists</span>
+      <h3>The Spreadsheet Stylists Keep Swearing They'll Replace</h3>
+      <p>A love letter to the Google Sheet that's quietly running the fashion industry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEWSLETTER ─── -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <span class="eyebrow">Find Your Fit.</span>
+    <h2>Essays, straight to your <span class="italic">inbox.</span></h2>
+    <p>Occasional notes on wardrobes, styling, and the armoires point of view. No fluff, no daily emails — just the good stuff.</p>
+    <p class="newsletter-note">Newsletter signup coming soon</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">armoires</a>
+    <div class="footer-links">
+      <a href="/blog/">Blog</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 armoires · Find Your Fit.</div>
+  </div>
+</footer>
+
+</body>
+</html>
