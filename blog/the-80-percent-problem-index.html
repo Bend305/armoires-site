@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 80% Problem — armoires</title>
+<meta name="description" content="Most of us only wear about 20% of what we own. Here's why that happens — and why it isn't your fault.">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  :root{
+    --obsidian:#1a1a1a;
+    --cream:#faf8f5;
+    --neutral-light:#e8e4df;
+    --neutral-medium:#9b9490;
+    --white:#ffffff;
+
+    --burg-deep:#5C1529;
+    --burg:#7B1F3A;
+    --burg-mid:#9B3050;
+
+    --blush-deep:#E8B5A8;
+    --blush:#F2D4CC;
+    --blush-light:#FAF0ED;
+
+    --navy-deep:#0D1B2A;
+    --navy:#1F3D5C;
+    --navy-mid:#2E5F8A;
+
+    --gold:#d4af7d;
+    --gold-deep:#8b7355;
+
+    --serif:'Crimson Text',Georgia,serif;
+    --sans:'Syne',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--cream);
+    color:var(--obsidian);
+    line-height:1.6;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,245,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:0.5px solid var(--neutral-light);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--serif);font-weight:600;font-size:24px;
+    letter-spacing:0.02em;color:var(--obsidian);
+    text-decoration:none;
+  }
+  .nav-links{display:flex;gap:36px;}
+  .nav-links a{
+    font-family:var(--sans);font-size:13px;font-weight:400;
+    color:var(--obsidian);text-decoration:none;
+    letter-spacing:0.02em;
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--burg);}
+  .nav-links a.active{color:var(--burg);font-weight:500;}
+  @media(max-width:720px){.nav-links{display:none;}}
+
+  .back-link{
+    max-width:760px;margin:0 auto;
+    padding:2rem 2rem 0;
+  }
+  .back-link a{
+    font-family:var(--sans);font-size:12px;font-weight:500;
+    color:var(--neutral-medium);text-decoration:none;
+    letter-spacing:0.08em;text-transform:uppercase;
+    transition:color 0.2s;
+  }
+  .back-link a:hover{color:var(--burg);}
+
+  .article-header{
+    max-width:760px;margin:0 auto;
+    padding:3rem 2rem 3rem;
+    text-align:center;
+  }
+  .eyebrow{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--navy);margin-bottom:1.5rem;
+    display:inline-block;
+  }
+  .article-header h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.25rem,5vw,3.75rem);
+    line-height:1.1;
+    letter-spacing:-0.02em;
+    margin-bottom:1.5rem;
+    color:var(--obsidian);
+  }
+  .article-header .subtitle{
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(1.1rem,1.8vw,1.3rem);
+    color:var(--neutral-medium);
+    max-width:580px;margin:0 auto 2rem;
+    line-height:1.5;
+  }
+  .article-meta{
+    display:flex;align-items:center;justify-content:center;
+    gap:1rem;flex-wrap:wrap;
+    font-family:var(--sans);font-size:12px;
+    color:var(--neutral-medium);
+    letter-spacing:0.06em;
+    padding-top:1.5rem;
+    border-top:0.5px solid var(--neutral-light);
+  }
+  .article-meta .dot{color:var(--gold);}
+  .article-meta .tag{
+    text-transform:uppercase;font-weight:500;letter-spacing:0.12em;
+    color:var(--burg);
+  }
+
+  .hero-image{
+    width:100%;margin:0 0 4rem;
+  }
+  .hero-image figure{margin:0;position:relative;}
+  .hero-image img{
+    display:block;width:100%;height:auto;
+    aspect-ratio:21/9;object-fit:cover;
+  }
+  @media(max-width:680px){
+    .hero-image img{aspect-ratio:4/5;}
+  }
+
+  article{
+    max-width:680px;margin:0 auto;
+    padding:0 2rem 5rem;
+  }
+  article p{
+    font-family:var(--serif);
+    font-size:1.2rem;
+    line-height:1.75;
+    margin-bottom:1.5rem;
+    color:var(--obsidian);
+  }
+  article p.dropcap::first-letter{
+    font-family:var(--serif);font-weight:600;
+    font-size:4.5rem;
+    float:left;
+    line-height:0.9;
+    padding:0.5rem 0.75rem 0 0;
+    color:var(--burg);
+  }
+  article p strong,article p b{font-weight:600;}
+  article p em{font-style:italic;color:var(--burg);}
+  article .pullquote{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.5rem,3vw,2rem);
+    line-height:1.3;
+    color:var(--navy);
+    text-align:center;
+    margin:3rem -1rem;
+    padding:2rem 1rem;
+    border-top:0.5px solid var(--neutral-light);
+    border-bottom:0.5px solid var(--neutral-light);
+    letter-spacing:-0.01em;
+  }
+  article .pullquote .accent{color:var(--burg);font-style:italic;}
+
+  .cta-block{
+    max-width:760px;margin:4rem auto 0;
+    padding:3.5rem 2rem;
+    background:var(--navy-deep);
+    color:var(--cream);
+    border-radius:16px;
+    text-align:center;
+  }
+  .cta-block .eyebrow{color:var(--gold);}
+  .cta-block h3{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.5rem,3vw,2rem);
+    line-height:1.2;
+    margin-bottom:1rem;
+    letter-spacing:-0.01em;
+  }
+  .cta-block h3 .italic{font-style:italic;color:var(--gold);}
+  .cta-block p{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    color:rgba(250,248,245,0.8);
+    max-width:500px;margin:0 auto 2rem;
+    line-height:1.6;
+  }
+  .cta-block a.cta-link{
+    font-family:var(--sans);font-size:13px;font-weight:600;
+    color:var(--gold);text-decoration:none;
+    letter-spacing:0.06em;text-transform:uppercase;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:4px;
+    transition:color 0.2s,border-color 0.2s;
+  }
+  .cta-block a.cta-link:hover{color:var(--cream);border-color:var(--cream);}
+
+  footer{
+    background:var(--navy-deep);color:var(--cream);
+    padding:3rem 2rem;
+    margin-top:5rem;
+  }
+  .footer-inner{
+    max-width:1080px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:1.5rem;
+  }
+  .footer-logo{
+    font-family:var(--serif);font-weight:600;font-size:20px;
+    color:var(--cream);text-decoration:none;
+  }
+  .footer-links{display:flex;gap:28px;flex-wrap:wrap;}
+  .footer-links a{
+    font-size:12px;color:rgba(250,248,245,0.7);
+    text-decoration:none;letter-spacing:0.04em;
+  }
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{
+    font-size:11px;color:rgba(250,248,245,0.5);
+    letter-spacing:0.06em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">armoires</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+    <span></span>
+  </div>
+</nav>
+
+<div class="back-link">
+  <a href="/blog/">← Back to blog</a>
+</div>
+
+<header class="article-header">
+  <span class="eyebrow">Essay · The armoires POV</span>
+  <h1>The 80% Problem</h1>
+  <p class="subtitle">Or: why you keep wearing the same five things.</p>
+  <div class="article-meta">
+    <span class="tag">Wardrobe</span>
+    <span class="dot">✦</span>
+    <span>6 min read</span>
+    <span class="dot">✦</span>
+    <span>Published April 2026</span>
+  </div>
+</header>
+
+<div class="hero-image">
+  <figure>
+    <img src="/the-80-percent-problem-hero.jpg" alt="A curated flat-lay of folded chinos, a watch, white sneakers, and a tee.">
+  </figure>
+</div>
+
+<article>
+  <p class="dropcap">There's a stat we keep coming back to, because every time we say it out loud, someone in the room goes <em>oh.</em></p>
+
+  <p>You wear about 20% of what you own.</p>
+
+  <p>The other 80% just hangs there. Waiting. Judging you a little, probably.</p>
+
+  <p>We didn't make that number up. Researchers have been circling it for years, and it shows up across closets of every size — 50 pieces, 500 pieces, it doesn't matter. The ratio holds. If you own 100 things, you're rotating through roughly 20 of them. The rest are ghosts.</p>
+
+  <p>And here's the part that's worth saying out loud: <strong>this is not a discipline problem.</strong> It's not a "you bought too much" problem, either, though that's often how it gets framed. The self-help industrial complex would love you to believe the answer is to throw it all away, buy a capsule wardrobe of twelve perfect pieces, and achieve enlightenment through linen.</p>
+
+  <p>We don't buy that. (Pun semi-intended.)</p>
+
+  <p>Because if you actually look at what's hanging in your closet, most of it isn't junk. There's the silk blouse you wore to that one wedding. The trousers that fit beautifully but need to be paired with exactly the right top. The blazer you bought because you loved it, and then never figured out how to wear. These aren't mistakes. They're pieces without a plan.</p>
+
+  <div class="pullquote">A closet is a terrible storage system. It's designed for hanging, <span class="accent">not for thinking.</span></div>
+
+  <p>The real problem is that a closet is a terrible storage system. It's designed for <em>hanging,</em> not for <em>thinking.</em> You open the door, your eyes scan the first two feet of rail, and your brain — doing what brains do — picks the thing it picked last Tuesday. And the Tuesday before that. Decision-making takes energy, and mornings are not the time your brain wants to spend energy.</p>
+
+  <p>So you wear the same five things. Not because you love them more. Because they're easier.</p>
+
+  <p>What changes when you actually <em>see</em> your whole wardrobe laid out — digitally, all at once, sortable by color or category or last-worn — is that the 80% stops being ghosts. You start rediscovering pieces you forgot you owned. You start asking "what goes with this green skirt?" and getting actual answers instead of guessing. You stop impulse-buying new sweaters because you finally notice you already have four.</p>
+
+  <p>We built armoires because we kept having this conversation. With friends. With stylists. With ourselves, standing in front of our own closets at 7:43 am, late for something.</p>
+
+  <p><strong>You don't need to own less. You need to see more.</strong></p>
+
+  <p>Your wardrobe is already full. The system, it turns out, is what was missing.</p>
+</article>
+
+<div class="cta-block">
+  <span class="eyebrow">Find Your Fit.</span>
+  <h3>Ready to rediscover the <span class="italic">other 80%?</span></h3>
+  <p>armoires digitizes your wardrobe, builds outfits from what you already own, and helps you stop buying things you don't need.</p>
+  <a href="/" class="cta-link">Learn more about armoires →</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">armoires</a>
+    <div class="footer-links">
+      <a href="/blog/">Blog</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 armoires · Find Your Fit.</div>
+  </div>
+</footer>
+
+</body>
+</html>
