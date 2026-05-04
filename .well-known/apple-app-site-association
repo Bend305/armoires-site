@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TXFUTVS8ZF.com.armoires.app",
+        "paths": ["/i/*", "/o/*", "/u/*"]
+      }
+    ]
+  }
+}

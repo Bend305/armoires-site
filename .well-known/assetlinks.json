@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.armoires.app",
+      "sha256_cert_fingerprints": [
+        "EC:36:49:41:B5:53:FE:98:1D:98:6F:9E:3D:BB:19:AC:42:B0:E1:8D:4C:13:0F:E6:66:5F:13:02:D0:10:2E:39"
+      ]
+    }
+  }
+]
