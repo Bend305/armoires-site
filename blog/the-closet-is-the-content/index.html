@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Closet Is the Content — armoires</title>
+<meta name="description" content="For creators, your wardrobe isn't just personal — it's professional. Here's why the way you organize it matters more than most people realize.">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --obsidian:#1a1a1a;
+    --cream:#faf8f5;
+    --neutral-light:#e8e4df;
+    --neutral-medium:#9b9490;
+    --burg-deep:#5C1529;
+    --burg:#7B1F3A;
+    --blush:#F2D4CC;
+    --blush-light:#FAF0ED;
+    --navy-deep:#0D1B2A;
+    --navy:#1F3D5C;
+    --gold:#d4af7d;
+    --gold-deep:#8b7355;
+    --serif:'Crimson Text',Georgia,serif;
+    --sans:'Syne',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:var(--serif);
+    background:var(--cream);
+    color:var(--obsidian);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  /* ── NAV ── */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,245,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:0.5px solid var(--neutral-light);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    padding:1.1rem 2rem;
+    display:flex;align-items:center;justify-content:space-between;
+    font-family:var(--sans);
+  }
+  .logo{
+    font-family:var(--serif);font-weight:600;
+    font-size:22px;letter-spacing:-0.01em;
+    color:var(--obsidian);text-decoration:none;
+  }
+  .nav-links{display:flex;gap:2rem;}
+  .nav-links a{
+    text-decoration:none;font-size:13px;font-weight:500;
+    color:var(--obsidian);letter-spacing:0.02em;
+  }
+  .nav-links a.active{color:var(--burg);}
+  .nav-links a:hover{color:var(--burg);}
+
+  /* ── ARTICLE HEADER ── */
+  .article-header{
+    max-width:760px;
+    margin:0 auto;
+    padding:5rem 2rem 0;
+    text-align:center;
+  }
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:11px;font-weight:600;
+    letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--burg);
+    display:inline-block;margin-bottom:1.75rem;
+  }
+  .article-header h1{
+    font-family:var(--serif);
+    font-size:clamp(2.5rem,5.5vw,4rem);
+    font-weight:600;
+    line-height:1.08;letter-spacing:-0.015em;
+    margin-bottom:1.25rem;
+  }
+  .article-header .subtitle{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:clamp(1.15rem,2vw,1.4rem);
+    color:var(--neutral-medium);
+    margin-bottom:2.25rem;
+    line-height:1.4;
+  }
+  .article-meta{
+    font-family:var(--sans);
+    font-size:12px;font-weight:500;
+    letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--neutral-medium);
+    display:flex;justify-content:center;align-items:center;
+    gap:1rem;flex-wrap:wrap;
+  }
+  .article-meta .tag{
+    background:var(--blush-light);
+    color:var(--burg);
+    padding:0.35rem 0.9rem;border-radius:999px;
+    font-weight:600;letter-spacing:0.08em;
+  }
+  .article-meta .dot{color:var(--gold);}
+
+  /* ── HERO IMAGE ── */
+  .hero-image{
+    width:100%;margin:3.5rem 0 0;
+  }
+  .hero-image img{
+    display:block;width:100%;height:auto;
+    aspect-ratio:21/9;object-fit:cover;
+  }
+
+  /* ── ARTICLE BODY ── */
+  article{
+    max-width:680px;
+    margin:0 auto;
+    padding:4rem 2rem 5rem;
+    font-size:1.2rem;
+    line-height:1.75;
+    color:#2a2a2a;
+  }
+  article p{margin-bottom:1.5rem;}
+  article p:first-of-type::first-letter{
+    font-family:var(--serif);
+    font-size:4.5rem;
+    font-weight:600;
+    float:left;
+    line-height:0.9;
+    margin:0.4rem 0.6rem 0 0;
+    color:var(--burg);
+  }
+  article .italic{
+    font-style:italic;
+    color:var(--burg);
+  }
+  article strong{
+    font-weight:600;
+    color:var(--obsidian);
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote{
+    margin:3rem -1rem;
+    padding:2.5rem 1rem;
+    border-top:0.5px solid var(--gold);
+    border-bottom:0.5px solid var(--gold);
+    text-align:center;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.7rem;
+    line-height:1.4;
+    color:var(--navy);
+    letter-spacing:-0.005em;
+  }
+  .pull-quote::before{
+    content:'✦';
+    display:block;
+    color:var(--gold);
+    font-size:1rem;
+    margin-bottom:1rem;
+    font-style:normal;
+  }
+
+  /* ── CTA BLOCK ── */
+  .cta-block{
+    max-width:760px;margin:0 auto 5rem;
+    padding:3.5rem 2.5rem;
+    background:var(--navy-deep);
+    color:var(--cream);
+    border-radius:6px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-block::before{
+    content:'';position:absolute;
+    top:-30%;right:-10%;
+    width:300px;height:300px;
+    background:radial-gradient(circle,rgba(212,175,125,0.15) 0%,transparent 65%);
+    border-radius:50%;
+  }
+  .cta-block .eyebrow{color:var(--gold);position:relative;z-index:1;}
+  .cta-block h3{
+    font-family:var(--serif);
+    font-size:2rem;font-weight:600;
+    margin-bottom:1rem;line-height:1.2;
+    position:relative;z-index:1;
+  }
+  .cta-block .italic{
+    font-style:italic;color:var(--gold);
+  }
+  .cta-block p{
+    font-size:1rem;
+    color:rgba(250,248,245,0.8);
+    max-width:480px;margin:0 auto 1.75rem;
+    position:relative;z-index:1;
+  }
+  .cta-link{
+    font-family:var(--sans);font-weight:600;font-size:13px;
+    letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--gold);text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:3px;
+    position:relative;z-index:1;
+    transition:color .2s;
+  }
+  .cta-link:hover{color:var(--cream);border-color:var(--cream);}
+
+  /* ── BACK TO BLOG ── */
+  .back-link{
+    max-width:680px;margin:0 auto;
+    padding:0 2rem 3rem;
+    font-family:var(--sans);font-size:12px;
+    font-weight:600;letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .back-link a{
+    color:var(--neutral-medium);text-decoration:none;
+    transition:color .2s;
+  }
+  .back-link a:hover{color:var(--burg);}
+
+  /* ── FOOTER ── */
+  footer{
+    background:var(--navy-deep);color:var(--cream);
+    padding:3rem 2rem;
+  }
+  .footer-inner{
+    max-width:1080px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:1.5rem;
+  }
+  .footer-logo{
+    font-family:var(--serif);font-weight:600;font-size:20px;
+    color:var(--cream);text-decoration:none;
+  }
+  .footer-links{display:flex;gap:28px;flex-wrap:wrap;}
+  .footer-links a{
+    font-size:12px;color:rgba(250,248,245,0.7);
+    text-decoration:none;letter-spacing:0.04em;
+  }
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{
+    font-size:11px;color:rgba(250,248,245,0.5);
+    letter-spacing:0.06em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:680px){
+    .hero-image img{aspect-ratio:4/5;}
+    article{padding:3rem 1.5rem 4rem;font-size:1.1rem;}
+    article p:first-of-type::first-letter{font-size:3.5rem;}
+    .pull-quote{font-size:1.35rem;margin:2rem 0;}
+    .cta-block{padding:2.5rem 1.75rem;}
+    .cta-block h3{font-size:1.6rem;}
+    .article-header{padding-top:3rem;}
+    .nav-links{gap:1.25rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">armoires</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── ARTICLE HEADER ─── -->
+<header class="article-header">
+  <span class="eyebrow">Essay · The armoires POV</span>
+  <h1>The Closet Is the Content</h1>
+  <p class="subtitle">For creators, your wardrobe isn't just personal — it's professional.</p>
+  <div class="article-meta">
+    <span class="tag">For Creators</span>
+    <span>5 min read</span>
+    <span class="dot">✦</span>
+    <span>May 2026</span>
+  </div>
+</header>
+
+<!-- ─── HERO IMAGE ─── -->
+<div class="hero-image">
+  <img src="../the-closet-is-the-content-hero.jpg" alt="A creator's wardrobe, treated as a working archive.">
+</div>
+
+<!-- ─── ARTICLE BODY ─── -->
+<article>
+  <p>There's a thing that happens when your closet becomes your office.</p>
+
+  <p>At some point — usually around the time a brand sends you a PR package worth more than your rent — your wardrobe stops being just a wardrobe. It becomes inventory. Props. The reason the lighting in your bedroom got upgraded to a softbox. The silent costar of every reel you've posted for the last eighteen months.</p>
+
+  <p><strong>And nobody tells you how to manage it.</strong></p>
+
+  <p>You figure it out the way creators figure everything out: on the fly, slightly panicked, with a system that started as <span class="italic">"I'll just remember what I wore"</span> and has since collapsed under its own weight. We've talked to creators with 800-piece wardrobes who can't find the cream knit they wore in the video that got 2 million views — the one brands keep asking about. That's not a personal failing. That's a content operations problem nobody built a tool for.</p>
+
+  <p>Because here's what the fashion influencer content pipeline actually looks like, from the inside:</p>
+
+  <p>Brand sends a piece. You photograph it (usually poorly, on your bed, for reference). It goes in a pile, then a different pile, then a closet, then maybe the spare room. You wear it for a reel. You post the reel. Two weeks later a new brand wants you to style something <span class="italic">"similar to that white blazer you wore — the one with the shoulder detail?"</span> And you spend forty-five minutes scrolling through your own camera roll trying to find it.</p>
+
+  <p>Meanwhile your partner is asking, again, whether the guest room will ever be a guest room.</p>
+
+  <div class="pull-quote">
+    We're not trying to turn you into a logistics company. You already are one.
+  </div>
+
+  <p>The creators we've talked to who've figured this out have one thing in common: they treat their closet like a catalogued archive. Tagged. Searchable. With notes on what's been worn, when, for which brand, in which post. Not because they love admin — most of them genuinely don't — but because at a certain scale, you can't hold it in your head anymore.</p>
+
+  <p>This is why we built armoires with creators in mind, specifically. <strong>Multi-wardrobe support</strong>, because some of you have a main closet plus a PR overflow plus a vintage archive. <strong>Affiliate link integration</strong>, because your content makes money for retailers and you should share in that. <strong>Public style profiles</strong>, because your wardrobe <span class="italic">is</span> your portfolio — and a catalog of it, beautifully presented, is a pitch deck to every brand you want to work with.</p>
+
+  <p>We're not trying to turn you into a logistics company. You already are one. We're just trying to give you the software your scale deserves.</p>
+
+  <p><strong>Your closet is the content. Treat it like it.</strong></p>
+</article>
+
+<!-- ─── CTA BLOCK ─── -->
+<div class="cta-block">
+  <span class="eyebrow">For Creators.</span>
+  <h3>Your wardrobe is your <span class="italic">portfolio.</span></h3>
+  <p>armoires gives creators the tools to catalog, tag, and surface every piece — so the closet that built your brand finally works as hard as you do.</p>
+  <a href="/" class="cta-link">Learn more about armoires →</a>
+</div>
+
+<!-- ─── BACK LINK ─── -->
+<div class="back-link">
+  <a href="/blog/">← Back to all essays</a>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">armoires</a>
+    <div class="footer-links">
+      <a href="/blog/">Blog</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 armoires · Find Your Fit.</div>
+  </div>
+</footer>
+
+</body>
+</html>
