@@ -112,7 +112,7 @@
 <main>
 
 <h1>Privacy Policy for armoires</h1>
-<p class="meta"><strong>Last updated:</strong> April 18, 2026 &nbsp;·&nbsp; <strong>Effective date:</strong> April 18, 2026</p>
+<p class="meta"><strong>Last updated:</strong> May 12, 2026 &nbsp;·&nbsp; <strong>Effective date:</strong> April 18, 2026</p>
 
 <p>armoires ("<strong>armoires</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") operates the armoires mobile application and related services at armoires.io (collectively, the "<strong>Service</strong>"). This Privacy Policy explains what personal information we collect, how we use it, who we share it with, and the choices you have.</p>
 
@@ -207,7 +207,28 @@
   <li>We do not collect your microphone audio.</li>
   <li>We do not use the iOS IDFA or engage in App Tracking Transparency-scoped tracking across apps and websites owned by other companies.</li>
   <li>We do not process payments in the app. External retailer links take you to third-party sites, where those sites' own privacy policies apply.</li>
+  <li>We do not retain or store selfies uploaded for virtual try-on; they are streamed to our image-generation provider and discarded after the composite image is returned.</li>
 </ul>
+<h3 id="virtual-try-on">2.4 Virtual Try-On</h3>
+
+<p>When you use our virtual try-on feature, we process two categories of image data:</p>
+
+<p><strong>Selfie (or "person image") you upload to preview an outfit:</strong></p>
+<ul>
+  <li>Streamed to Google Vertex AI (<code>virtual-try-on-001</code> model) for one-time processing.</li>
+  <li>Not stored on Armoires servers, not stored in our database, and not written to S3.</li>
+  <li>Not used to train Vertex AI's underlying model, per Google Cloud's data-processing terms for Vertex AI.</li>
+  <li>Discarded by Armoires after the composite image is returned.</li>
+</ul>
+
+<p><strong>Try-on result images (the composite of you wearing a candidate garment):</strong></p>
+<ul>
+  <li>Stored in AWS S3 under your user account.</li>
+  <li>Visible only to you unless you choose to share or save them to your profile.</li>
+  <li>Deleted when you delete your account, or when you individually remove them from the app.</li>
+</ul>
+
+<p>You can choose, instead of uploading a selfie, to use a stock model photo provided by Armoires for try-on. In that case no personal image is processed.</p>
 
 <h2>3. How We Use Your Information</h2>
 <p>We use the information described above to:</p>
@@ -295,6 +316,11 @@
       <td><strong>Expo / Expo Application Services (EAS)</strong></td>
       <td>Mobile app build, over-the-air updates, crash metadata</td>
       <td>App version, update channel, and diagnostic data tied to a random installation identifier</td>
+    </tr>
+    <tr>
+      <td>Google Cloud Platform &mdash; Vertex AI</td>
+      <td>Virtual try-on image generation (<code>virtual-try-on-001</code> model)</td>
+      <td>Uploaded selfie is streamed for one-time processing and not retained by Armoires or used to train Google's models.</td>
     </tr>
   </tbody>
 </table>
