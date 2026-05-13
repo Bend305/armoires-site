@@ -122,6 +122,38 @@
 <p><strong>Data Controller:</strong> armoires<br>
 <strong>Contact:</strong> <a href="mailto:support@armoires.io">support@armoires.io</a><br>
 <strong>Privacy inquiries:</strong> <a href="mailto:support@armoires.io">support@armoires.io</a></p>
+<aside class="policy-callout" aria-labelledby="ai-summary">
+  <h2 id="ai-summary">How AI Uses Your Data &mdash; In Plain English</h2>
+
+  <p>Armoires uses AI to power core features. Here's a short, plain-language summary of what goes where. The full legal detail is in the sections below.</p>
+
+  <dl>
+    <dt>Tagging your closet items</dt>
+    <dd>When you add a clothing item, we send the photo to Anthropic's Claude model (via AWS Bedrock) to extract attributes like color, pattern, and style. Photos are processed for tagging only and are not used to train the model.</dd>
+
+    <dt>Search and "find similar"</dt>
+    <dd>We turn your item photos and descriptions into numerical fingerprints ("embeddings") using Amazon Titan (via AWS Bedrock). These fingerprints live in our database so you can search your closet semantically (e.g. "my black blazers"). They are not human-readable images.</dd>
+
+    <dt>Virtual try-on</dt>
+    <dd>If you upload a selfie to try on an outfit, your selfie is streamed to Google Vertex AI for one-time image generation. We do not store your selfie. The resulting try-on image is saved to your account and is only visible to you unless you share it. Per Google's terms, your image is not used to train Google's foundation models.</dd>
+
+    <dt>Styling chats and outfit suggestions</dt>
+    <dd>When you chat with our styling agents, your messages and relevant closet context are sent to Claude (via AWS Bedrock) to generate responses. We do not sell chat content and it is not used to train the underlying AI models.</dd>
+
+    <dt>Your "For You" feed</dt>
+    <dd>We share your interactions (items you view, save, like) and your style preferences with Recombee, our recommendation provider, so they can rank what we show you. Recombee does not receive your photos or messages.</dd>
+
+    <dt>Background removal on item photos</dt>
+    <dd>This happens on our own servers using open-source software. Your item photos are not sent to a third-party background-removal service.</dd>
+  </dl>
+
+  <p><strong>What this means for you:</strong></p>
+  <ul>
+    <li>Your data powers <em>your</em> experience &mdash; tagging, search, try-on, and personalization.</li>
+    <li>Your photos and messages are not used to train any AI model, ours or our providers'.</li>
+    <li>You can delete your account and your data at any time from in-app Settings, or by emailing <a href="mailto:support@armoires.io">support@armoires.io</a>.</li>
+  </ul>
+</aside>
 
 <h2>2. Information We Collect</h2>
 
