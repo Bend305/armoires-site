@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — armoires</title>
+<meta name="description" content="armoires is built by B Squared Tech LLC — founded 2023 in Denver, Colorado. Bootstrapped. Member of NVIDIA Inception. Building the operating system for personal style.">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  :root{
+    --obsidian:#1a1a1a;
+    --cream:#faf8f5;
+    --neutral-light:#e8e4df;
+    --neutral-medium:#9b9490;
+    --white:#ffffff;
+
+    --burg-deep:#5C1529;
+    --burg:#7B1F3A;
+    --burg-mid:#9B3050;
+
+    --blush-deep:#E8B5A8;
+    --blush:#F2D4CC;
+    --blush-light:#FAF0ED;
+
+    --navy-deep:#0D1B2A;
+    --navy:#1F3D5C;
+    --navy-mid:#2E5F8A;
+
+    --gold:#d4af7d;
+    --gold-deep:#8b7355;
+
+    --serif:'Crimson Text',Georgia,serif;
+    --sans:'Syne',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--cream);
+    color:var(--obsidian);
+    line-height:1.6;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .display{font-family:var(--serif);font-weight:600;}
+  .italic{font-style:italic;}
+
+  /* ─── NAV (matches homepage) ─── */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,245,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:0.5px solid var(--neutral-light);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--serif);font-weight:600;font-size:24px;
+    letter-spacing:0.02em;color:var(--obsidian);
+    text-decoration:none;
+  }
+  .nav-links{display:flex;gap:36px;}
+  .nav-links a{
+    font-family:var(--sans);font-size:13px;font-weight:400;
+    color:var(--obsidian);text-decoration:none;
+    letter-spacing:0.02em;
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--burg);}
+  .nav-links a.active{color:var(--burg);font-weight:600;}
+  .nav-cta{
+    font-family:var(--sans);font-size:13px;font-weight:600;
+    background:var(--burg);color:var(--cream);
+    padding:10px 22px;border-radius:40px;
+    text-decoration:none;letter-spacing:0.02em;
+    transition:background 0.2s;
+  }
+  .nav-cta:hover{background:var(--burg-deep);}
+  @media(max-width:720px){.nav-links{display:none;}}
+
+  /* ─── GENERAL ─── */
+  .eyebrow{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--navy);margin-bottom:1rem;
+    display:inline-block;
+  }
+  .divider{border:none;border-top:0.5px solid var(--neutral-light);max-width:1080px;margin:0 auto;}
+
+  /* ─── EDITORIAL HERO ─── */
+  .about-hero{
+    padding:8rem 2rem 5rem;
+    text-align:center;
+    max-width:920px;margin:0 auto;
+  }
+  .about-hero .eyebrow{color:var(--burg);}
+  .about-hero h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.5rem,6vw,4.5rem);
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    margin-bottom:1.5rem;
+  }
+  .about-hero h1 .italic{color:var(--burg);font-style:italic;}
+  .about-hero p.lede{
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(1.15rem,2vw,1.5rem);
+    color:var(--neutral-medium);
+    max-width:680px;margin:0 auto;
+    line-height:1.5;
+  }
+  .about-hero-rule{
+    width:80px;height:2px;
+    background:var(--gold);
+    margin:2.5rem auto 0;
+  }
+
+  /* ─── COMPANY DETAILS (after hero) ─── */
+  .company{
+    padding:5rem 2rem;
+    background:var(--cream);
+  }
+  .company .container{
+    max-width:880px;margin:0 auto;
+  }
+  .company-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3.5rem;
+    align-items:start;
+  }
+  .company-text h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.75rem,3.5vw,2.4rem);
+    letter-spacing:-0.01em;
+    line-height:1.2;
+    margin-bottom:1.25rem;
+  }
+  .company-text p{
+    font-size:1rem;color:var(--obsidian);
+    line-height:1.7;
+    margin-bottom:1rem;
+  }
+  .company-text p:last-child{margin-bottom:0;color:var(--neutral-medium);}
+
+  .company-meta{
+    background:var(--white);
+    border:0.5px solid var(--neutral-light);
+    border-radius:12px;
+    padding:2rem;
+  }
+  .company-meta dl{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.25rem;
+  }
+  .company-meta dt{
+    font-family:var(--sans);font-size:10.5px;font-weight:600;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--neutral-medium);
+    margin-bottom:0.25rem;
+  }
+  .company-meta dd{
+    font-family:var(--serif);font-size:1.05rem;
+    color:var(--obsidian);
+    line-height:1.4;
+  }
+  .company-meta dd .accent{
+    color:var(--burg);font-style:italic;
+  }
+  @media(max-width:720px){
+    .company-grid{grid-template-columns:1fr;gap:2.5rem;}
+  }
+
+  /* ─── INCEPTION BADGE STRIP ─── */
+  .credentials{
+    background:var(--navy-deep);
+    color:var(--cream);
+    padding:3.5rem 2rem;
+    text-align:center;
+  }
+  .credentials .eyebrow{
+    color:var(--gold);
+  }
+  .credentials h3{
+    font-family:var(--serif);font-weight:600;font-style:italic;
+    font-size:clamp(1.4rem,3vw,1.9rem);
+    max-width:620px;margin:0 auto;
+    line-height:1.4;
+    color:var(--cream);
+  }
+  .credentials h3 .gold{color:var(--gold);font-style:normal;font-weight:600;}
+
+  /* ─── FOUNDERS / BUILT BY ─── */
+  .team{
+    background:var(--white);
+    padding:6rem 2rem;
+    border-top:0.5px solid var(--neutral-light);
+  }
+  .team .container{max-width:1080px;margin:0 auto;}
+  .team-header{text-align:center;margin-bottom:3.5rem;}
+  .team-header h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2rem,4.5vw,2.75rem);
+    letter-spacing:-0.01em;
+    line-height:1.15;
+  }
+  .team-header p.sub{
+    font-family:var(--serif);font-style:italic;
+    font-size:1.1rem;color:var(--neutral-medium);
+    max-width:620px;margin:1rem auto 0;
+  }
+  .founders-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;
+    max-width:920px;margin:0 auto;
+  }
+  .founder{
+    background:var(--cream);
+    border:0.5px solid var(--neutral-light);
+    border-radius:14px;
+    padding:2rem;
+    display:flex;gap:1.5rem;align-items:flex-start;
+  }
+  .founder-photo{
+    flex-shrink:0;
+    width:96px;height:96px;border-radius:50%;
+    overflow:hidden;
+    background:var(--neutral-light);
+  }
+  .founder-photo img{
+    display:block;width:100%;height:100%;
+    object-fit:cover;
+  }
+  .founder-info h3{
+    font-family:var(--serif);font-weight:600;font-size:1.35rem;
+    letter-spacing:-0.01em;margin-bottom:0.2rem;
+  }
+  .founder-role{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--burg);margin-bottom:0.85rem;
+  }
+  .founder-bio{
+    font-size:0.92rem;line-height:1.6;
+    color:var(--obsidian);
+  }
+  .founder-meeting-note{
+    text-align:center;
+    font-family:var(--serif);font-style:italic;
+    font-size:1.05rem;color:var(--neutral-medium);
+    margin-top:2.5rem;max-width:680px;margin-left:auto;margin-right:auto;
+  }
+  @media(max-width:720px){
+    .founders-grid{grid-template-columns:1fr;}
+    .founder{flex-direction:column;align-items:flex-start;}
+  }
+
+  /* ─── CLOSING CTA ─── */
+  .closing-cta{
+    background:var(--blush-light);
+    text-align:center;
+    padding:6rem 2rem;
+  }
+  .closing-cta h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2rem,4.5vw,2.75rem);
+    line-height:1.15;letter-spacing:-0.01em;
+    margin-bottom:1.25rem;
+  }
+  .closing-cta h2 .italic{color:var(--burg);}
+  .closing-cta p{
+    font-size:1.05rem;color:var(--neutral-medium);
+    max-width:520px;margin:0 auto 2.25rem;
+  }
+  .btn-primary{
+    font-family:var(--sans);font-size:14px;font-weight:600;
+    background:var(--burg);color:var(--cream);
+    padding:15px 32px;border-radius:40px;border:none;cursor:pointer;
+    text-decoration:none;letter-spacing:0.02em;
+    transition:background 0.2s,transform 0.2s;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--burg-deep);transform:translateY(-1px);}
+
+  /* ─── FOOTER (matches homepage) ─── */
+  footer{
+    background:var(--navy-deep);color:var(--cream);
+    padding:3rem 2rem;
+  }
+  .footer-inner{
+    max-width:1080px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:1.5rem;
+  }
+  .footer-logo{
+    font-family:var(--serif);font-weight:600;font-size:20px;
+    color:var(--cream);text-decoration:none;
+  }
+  .footer-links{display:flex;gap:28px;flex-wrap:wrap;}
+  .footer-links a{
+    font-size:12px;color:rgba(250,248,245,0.7);
+    text-decoration:none;letter-spacing:0.04em;
+  }
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{
+    font-size:11px;color:rgba(250,248,245,0.5);
+    letter-spacing:0.06em;
+  }
+  .footer-member{
+    font-family:var(--sans);font-size:10px;font-weight:600;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--gold);
+    margin-top:0.4rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">armoires</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
+      <a href="/about/" class="active">About</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <a href="/blog/" class="nav-cta">Join Waitlist</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     EDITORIAL HERO
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="about-hero">
+  <span class="eyebrow">About armoires.</span>
+  <h1>Building the operating system for <span class="italic">personal style.</span></h1>
+  <p class="lede">An AI-powered wardrobe app, built by two engineers who got tired of staring at full closets and feeling like they had nothing to wear.</p>
+  <div class="about-hero-rule"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COMPANY DETAILS
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="company">
+  <div class="container">
+    <div class="company-grid">
+      <div class="company-text">
+        <h2>A company built around one stubborn problem.</h2>
+        <p>The average closet holds 150+ pieces. Most people wear 20% of them. The rest sit unworn — not because they're not loved, but because there's no system to surface them at the right moment.</p>
+        <p>armoires is the platform that fixes that. We combine computer vision, multimodal AI, and personalized styling to turn every wardrobe into a working system — and the way you shop into something intentional rather than accidental.</p>
+        <p>We're bootstrapped, building in public beta, and proudly based in Denver.</p>
+      </div>
+
+      <aside class="company-meta">
+        <dl>
+          <div>
+            <dt>Legal Entity</dt>
+            <dd>B Squared Tech LLC</dd>
+          </div>
+          <div>
+            <dt>Founded</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Headquarters</dt>
+            <dd>Denver, Colorado</dd>
+          </div>
+          <div>
+            <dt>Stage</dt>
+            <dd>Bootstrapped · <span class="accent">Private Beta</span></dd>
+          </div>
+          <div>
+            <dt>Available On</dt>
+            <dd>iOS (TestFlight) · Android</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CREDENTIALS BAR
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="credentials">
+  <span class="eyebrow">Credentials.</span>
+  <h3>Proud <span class="gold">member of NVIDIA Inception</span> — a program for startups building with AI.</h3>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOUNDERS / BUILT BY
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="team">
+  <div class="container">
+    <div class="team-header">
+      <span class="eyebrow">Built By.</span>
+      <h2>Two engineers. One wardrobe problem.</h2>
+      <p class="sub">armoires is built by founders who write code, ship features, and use the app every day.</p>
+    </div>
+    <div class="founders-grid">
+      <div class="founder">
+        <div class="founder-photo">
+          <img src="../assets/birney.png" alt="Birney Dauphin, Co-Founder & CEO">
+        </div>
+        <div class="founder-info">
+          <h3>Birney Dauphin</h3>
+          <div class="founder-role">Co-Founder &amp; CEO</div>
+          <p class="founder-bio">13+ years building customer engagement systems. Senior Dynamics 365 CE Consultant at Hitachi Solutions America. Deep expertise in CRM, customer data, and personalization at enterprise scale.</p>
+        </div>
+      </div>
+      <div class="founder">
+        <div class="founder-photo">
+          <img src="../assets/brenda.png" alt="Brenda De La Torre, Co-Founder & CTO">
+        </div>
+        <div class="founder-info">
+          <h3>Brenda De La Torre</h3>
+          <div class="founder-role">Co-Founder &amp; CTO</div>
+          <p class="founder-bio">AI architect at Microsoft for 4+ years — Principal Solution Engineer for Digital Natives, previously CTO for Private Capital &amp; AI. Azure OpenAI and Copilot specialist who has shipped enterprise AI for VC-backed startups.</p>
+        </div>
+      </div>
+    </div>
+    <p class="founder-meeting-note">Birney and Brenda first worked together at Hitachi Solutions America. armoires pairs 13+ years of customer-engagement engineering with frontline enterprise AI.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CLOSING CTA
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="closing-cta">
+  <h2>Want in <span class="italic">early?</span></h2>
+  <p>armoires is in private beta on iOS and Android. Founding members get lifetime perks and a direct line to the team.</p>
+  <a href="/blog/" class="btn-primary">Join the Waitlist</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="/" class="footer-logo">armoires</a>
+      <div class="footer-member">Member · NVIDIA Inception</div>
+    </div>
+    <div class="footer-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacypolicy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Service</a>
+      <a href="mailto:support@armoires.io">Support</a>
+    </div>
+    <div class="footer-copy">© 2026 B Squared Tech LLC · armoires · Find Your Fit.</div>
+  </div>
+</footer>
+
+</body>
+</html>
