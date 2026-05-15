@@ -24,6 +24,7 @@
     --sans:'Syne',system-ui,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     font-family:var(--serif);
     background:var(--cream);
@@ -345,11 +346,15 @@
     font-size:0.95rem;
   }
 
-  /* ── NEWSLETTER ── */
+  /* ── NEWSLETTER / WAITLIST ── */
+  /* scroll-margin-top gives breathing room above the section when anchored
+     from "Join Waitlist" buttons on the homepage and about page —
+     accounts for the sticky nav (~65px) plus visual padding */
   .newsletter{
     background:var(--navy-deep);color:var(--cream);
     padding:5rem 2rem;
     position:relative;overflow:hidden;
+    scroll-margin-top:80px;
   }
   .newsletter::before{
     content:'';position:absolute;
@@ -499,8 +504,10 @@
   </div>
 </section>
 
-<!-- ─── NEWSLETTER ─── -->
-<section class="newsletter">
+<!-- ─── NEWSLETTER / WAITLIST ───
+     id="waitlist" is the anchor target for "Join Waitlist" buttons
+     on the homepage and about page (/blog/#waitlist) -->
+<section class="newsletter" id="waitlist">
   <div class="newsletter-inner">
     <span class="eyebrow">Limited Beta.</span>
     <h2>Be the first to <span class="italic">find your fit.</span></h2>
@@ -518,6 +525,9 @@
   <div class="footer-inner">
     <a href="/" class="footer-logo">armoires</a>
     <div class="footer-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
+      <a href="/about/">About</a>
       <a href="/blog/">Blog</a>
       <a href="/privacypolicy/">Privacy Policy</a>
       <a href="/terms/">Terms of Service</a>
@@ -530,21 +540,21 @@
 (function(){
   const form = document.getElementById('waitlist-form');
   if(!form) return;
- 
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const button = form.querySelector('button');
     const original = button.textContent;
     button.disabled = true;
     button.textContent = 'Sending...';
- 
+
     try {
       const response = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
- 
+
       if (response.ok) {
         const container = form.parentElement;
         const fineprint = container.querySelector('.waitlist-fineprint');
@@ -560,11 +570,11 @@
     } catch (err) {
       button.disabled = false;
       button.textContent = original;
-      alert("Something went wrong. Please try again, or email armoiresapp.io@gmail.com directly.");
+      alert("Something went wrong. Please try again, or email support@armoires.io directly.");
     }
   });
 })();
 </script>
-  
+
 </body>
 </html>
