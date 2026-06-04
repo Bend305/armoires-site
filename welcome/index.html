@@ -256,6 +256,33 @@
   </div>
 </main>
 
+<script>
+  // When a visitor reaches /welcome/ from a deep link that couldn't open the app
+  // (see /404.html), the original path arrives as ?from=/i/abc123. Carry that
+  // context into the install so the app can route the user after they download.
+  (function () {
+    var from = new URLSearchParams(window.location.search).get("from");
+    // Only trust values that match our real deep-link paths — never reflect
+    // arbitrary input into links or storage.
+    if (!from || !/^\/(i|o|u)\/|^\/ci(\/|$)/.test(from)) return;
+
+    // Remember it for this browser (analytics / same-device follow-up).
+    try { localStorage.setItem("armoires:deepLink", from); } catch (e) {}
+
+    // Android: the Play Store Install Referrer delivers this to the app on first
+    // launch, enabling deferred deep linking natively.
+    var play = document.querySelector('a[href*="play.google.com"]');
+    if (play) {
+      var url = new URL(play.href);
+      url.searchParams.set("referrer", "deeplink=" + encodeURIComponent(from));
+      play.href = url.toString();
+    }
+    // iOS: the App Store cannot pass this to the app on first install from a web
+    // page, so we only retain it above. (Clipboard / Branch-style matching would
+    // be needed for true iOS deferred deep linking.)
+  })();
+</script>
+
 <footer>
   © 2026 armoires · <a href="/">Home</a> · <a href="/blog/">Blog</a>
 </footer>

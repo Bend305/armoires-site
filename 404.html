@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Armoires</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // GitHub Pages serves this file for any path it can't find.
+  // Deep-link paths (/i/*, /o/*, /u/*, /ci) are meant to open the Armoires app.
+  // If the app isn't installed, the browser lands here instead of opening the app,
+  // so route those visitors to the app-download page rather than showing a 404.
+  (function () {
+    var path = window.location.pathname || "";
+    var isDeepLink =
+      /^\/(i|o|u)\//.test(path) ||   // /i/*, /o/*, /u/*
+      /^\/ci(\/|$)/.test(path);      // /ci (and /ci/...)
+    if (isDeepLink) {
+      // Pass the original deep-link path (plus any query string) to the welcome
+      // page so it can route the user appropriately after they install the app.
+      var original = path + (window.location.search || "");
+      window.location.replace("/welcome/?from=" + encodeURIComponent(original));
+    }
+  })();
+</script>
+</head>
+<body>
+  <h1>Page not found</h1>
+  <p>The page you&rsquo;re looking for doesn&rsquo;t exist.</p>
+  <p><a href="/">Return to armoires.io</a></p>
+</body>
+</html>
