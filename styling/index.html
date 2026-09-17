@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Styling — armoires</title>
+<meta name="description" content="Work with a real stylist who builds looks from the clothes already hanging in your closet. How styling on armoires works, what it costs, and answers to the questions everyone asks.">
+<link rel="canonical" href="https://www.armoires.io/styling/">
+<meta property="og:title" content="Styling — armoires">
+<meta property="og:description" content="A stylist who works from your closet. Not a shopping list — a real person, styling the clothes you already own.">
+<meta property="og:url" content="https://www.armoires.io/styling/">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  :root{
+    --obsidian:#1a1a1a;
+    --cream:#faf8f5;
+    --neutral-light:#e8e4df;
+    --neutral-medium:#9b9490;
+    --white:#ffffff;
+
+    --burg-deep:#5C1529;
+    --burg:#7B1F3A;
+    --burg-mid:#9B3050;
+
+    --blush-deep:#E8B5A8;
+    --blush:#F2D4CC;
+    --blush-light:#FAF0ED;
+
+    --navy-deep:#0D1B2A;
+    --navy:#1F3D5C;
+    --navy-mid:#2E5F8A;
+
+    --gold:#d4af7d;
+    --gold-deep:#8b7355;
+
+    --serif:'Crimson Text',Georgia,serif;
+    --sans:'Syne',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--cream);
+    color:var(--obsidian);
+    line-height:1.6;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .display{font-family:var(--serif);font-weight:600;}
+  .italic{font-style:italic;}
+
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,245,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:0.5px solid var(--neutral-light);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--serif);font-weight:600;font-size:24px;
+    letter-spacing:0.02em;color:var(--obsidian);
+    text-decoration:none;
+  }
+  .nav-links{display:flex;gap:36px;}
+  .nav-links a{
+    font-family:var(--sans);font-size:13px;font-weight:400;
+    color:var(--obsidian);text-decoration:none;
+    letter-spacing:0.02em;
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--burg);}
+  .nav-cta{
+    font-family:var(--sans);font-size:13px;font-weight:600;
+    background:var(--burg);color:var(--cream);
+    padding:10px 22px;border-radius:40px;
+    text-decoration:none;letter-spacing:0.02em;
+    transition:background 0.2s;
+  }
+  .nav-cta:hover{background:var(--burg-deep);}
+  @media(max-width:720px){.nav-links{display:none;}}
+
+  section{padding:5.5rem 2rem;}
+  .container{max-width:1080px;margin:0 auto;}
+  .divider{border:none;border-top:0.5px solid var(--neutral-light);max-width:1080px;margin:0 auto;}
+
+  .eyebrow{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--navy);margin-bottom:1rem;
+    display:inline-block;
+  }
+
+  .hero{text-align:center;padding:7rem 2rem 5rem;}
+  .hero h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(3rem,7vw,5.5rem);
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    margin-bottom:1.5rem;
+  }
+  .hero h1 .accent{color:var(--burg);font-style:italic;}
+  .hero p.lede{
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(1.15rem,2vw,1.4rem);
+    color:var(--neutral-medium);
+    max-width:620px;margin:0 auto 2.5rem;
+    line-height:1.5;
+  }
+
+  /* member pill — kept in stylesheet for use on /about page; not used on homepage */
+
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{
+    font-family:var(--sans);font-size:14px;font-weight:600;
+    background:var(--burg);color:var(--cream);
+    padding:15px 32px;border-radius:40px;border:none;cursor:pointer;
+    text-decoration:none;letter-spacing:0.02em;
+    transition:background 0.2s,transform 0.2s;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--burg-deep);transform:translateY(-1px);}
+  .btn-secondary{
+    font-family:var(--sans);font-size:14px;font-weight:600;
+    background:transparent;color:var(--obsidian);
+    padding:15px 32px;border-radius:40px;
+    border:1px solid var(--obsidian);
+    text-decoration:none;letter-spacing:0.02em;
+    transition:background 0.2s,color 0.2s;
+    display:inline-block;
+  }
+  .btn-secondary:hover{background:var(--obsidian);color:var(--cream);}
+
+  .stats{
+    background:var(--blush-light);
+    padding:3.5rem 2rem;
+  }
+  .stats-grid{
+    max-width:1080px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
+    text-align:center;
+  }
+  .stat-num{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.5rem,5vw,3.5rem);
+    color:var(--burg);
+    line-height:1;margin-bottom:0.5rem;
+  }
+  .stat-label{
+    font-family:var(--sans);font-size:12px;font-weight:500;
+    letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--navy);
+  }
+  @media(max-width:680px){.stats-grid{grid-template-columns:1fr;gap:2.5rem;}}
+
+  .problem{text-align:center;max-width:780px;margin:0 auto;}
+  .problem h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2rem,4.5vw,3rem);
+    line-height:1.15;margin-bottom:1.5rem;
+    letter-spacing:-0.01em;
+  }
+  .problem h2 .italic{color:var(--burg);}
+  .problem p{
+    font-size:1.05rem;color:var(--neutral-medium);
+    max-width:600px;margin:0 auto;
+  }
+
+  .features-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;
+  }
+  .feature{padding-right:1rem;}
+  .feature-num{
+    font-family:var(--serif);font-weight:600;font-style:italic;
+    font-size:1.5rem;color:var(--gold);
+    margin-bottom:1rem;
+  }
+  .feature h3{
+    font-family:var(--serif);font-weight:600;
+    font-size:1.5rem;margin-bottom:0.75rem;
+    letter-spacing:-0.01em;
+  }
+  .feature p{
+    font-size:0.95rem;color:var(--neutral-medium);line-height:1.65;
+  }
+  @media(max-width:720px){.features-grid{grid-template-columns:1fr;gap:2.5rem;}}
+
+  /* ─── APP SCREENSHOTS SECTION ─── */
+  .app-shots{background:var(--blush-light);padding:6rem 2rem;}
+  .app-shots .container{text-align:center;}
+  .app-shots h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2rem,4.5vw,2.75rem);
+    margin-bottom:1rem;letter-spacing:-0.01em;
+  }
+  .app-shots .lede-sub{
+    font-family:var(--serif);font-style:italic;
+    font-size:1.1rem;color:var(--neutral-medium);
+    max-width:560px;margin:0 auto 3.5rem;
+  }
+  .phones{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:1.25rem;
+    max-width:1080px;margin:0 auto;
+  }
+  .phone{
+    background:var(--white);
+    border-radius:22px;
+    padding:8px;
+    box-shadow:0 8px 28px rgba(13,27,42,0.10);
+    transition:transform 0.3s;
+  }
+  .phone:hover{transform:translateY(-4px);}
+  .phone img{
+    display:block;width:100%;height:auto;
+    border-radius:16px;
+    aspect-ratio:9/19.5;
+    object-fit:cover;
+    object-position:top;
+  }
+  .phone-caption{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--navy);margin-top:1rem;
+  }
+  @media(max-width:980px){
+    .phones{grid-template-columns:repeat(3,1fr);}
+    .phone:nth-child(4),.phone:nth-child(5){display:none;}
+  }
+  @media(max-width:600px){
+    .phones{grid-template-columns:repeat(2,1fr);}
+    .phone:nth-child(3){display:none;}
+  }
+
+  .how{background:var(--navy-deep);color:var(--cream);padding:6rem 2rem;}
+  .how .container{text-align:center;}
+  .how .eyebrow{color:var(--gold);}
+  .how h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2rem,4.5vw,2.75rem);
+    margin-bottom:3.5rem;letter-spacing:-0.01em;
+  }
+  .steps{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;
+    text-align:left;
+  }
+  .step{
+    border-top:1px solid rgba(250,248,245,0.2);
+    padding-top:1.5rem;
+  }
+  .step-num{
+    font-family:var(--serif);font-weight:600;font-style:italic;
+    font-size:1.25rem;color:var(--gold);margin-bottom:0.75rem;
+  }
+  .step h4{
+    font-family:var(--serif);font-weight:600;font-size:1.2rem;
+    margin-bottom:0.5rem;
+  }
+  .step p{
+    font-size:0.92rem;color:rgba(250,248,245,0.75);line-height:1.6;
+  }
+  @media(max-width:720px){.steps{grid-template-columns:1fr;gap:2rem;}}
+
+  /* ─── BETA / WAITLIST SECTION ─── */
+  .beta{text-align:center;padding:6rem 2rem;background:var(--cream);}
+  .beta .container{max-width:720px;}
+  .beta h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2rem,4.5vw,3rem);
+    line-height:1.15;letter-spacing:-0.01em;
+    margin-bottom:1.25rem;
+  }
+  .beta h2 .italic{color:var(--burg);}
+  .beta p{
+    font-size:1.05rem;color:var(--neutral-medium);
+    margin-bottom:2.25rem;
+    max-width:560px;margin-left:auto;margin-right:auto;
+  }
+  .beta-badges{
+    display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;
+    margin-bottom:2.25rem;
+  }
+  .beta-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--navy);
+    background:var(--white);
+    border:0.5px solid var(--neutral-light);
+    padding:8px 16px;border-radius:40px;
+  }
+  .beta-badge::before{
+    content:"";display:inline-block;width:6px;height:6px;
+    background:var(--burg);border-radius:50%;
+  }
+
+  /* ─── FOUNDERS / TEAM SECTION — moved to /about page ─── */
+
+  /* ─── ABOUT SECTION — moved to /about page ─── */
+
+  .closing{text-align:center;padding:7rem 2rem;background:var(--blush-light);}
+  .closing h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.5rem,6vw,4rem);
+    line-height:1.1;letter-spacing:-0.02em;
+    margin-bottom:1.5rem;
+  }
+  .closing h2 .italic{color:var(--burg);}
+  .closing p{
+    font-size:1.05rem;color:var(--neutral-medium);
+    max-width:580px;margin:0 auto 2.5rem;
+  }
+
+  footer{
+    background:var(--navy-deep);color:var(--cream);
+    padding:3rem 2rem;
+  }
+  .footer-inner{
+    max-width:1080px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:1.5rem;
+  }
+  .footer-logo{
+    font-family:var(--serif);font-weight:600;font-size:20px;
+    color:var(--cream);text-decoration:none;
+  }
+  .footer-links{display:flex;gap:28px;flex-wrap:wrap;}
+  .footer-links a{
+    font-size:12px;color:rgba(250,248,245,0.7);
+    text-decoration:none;letter-spacing:0.04em;
+  }
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{
+    font-size:11px;color:rgba(250,248,245,0.5);
+    letter-spacing:0.06em;
+  }
+
+  .hero-image{
+    width:100%;margin:3.5rem 0 0;
+    position:relative;
+  }
+  .hero-image figure{margin:0;position:relative;}
+  .hero-image img{
+    display:block;width:100%;height:auto;
+    aspect-ratio:21/9;object-fit:cover;
+  }
+  .hero-image figcaption{
+    position:absolute;bottom:2rem;left:50%;
+    transform:translateX(-50%);
+    width:100%;max-width:1080px;
+    padding:0 2rem;
+    font-family:var(--serif);font-style:italic;font-weight:600;
+    font-size:1.25rem;color:var(--cream);
+    text-shadow:0 2px 16px rgba(0,0,0,0.5);
+    letter-spacing:0.01em;
+  }
+  @media(max-width:680px){
+    .hero-image{margin-top:2.5rem;}
+    .hero-image img{aspect-ratio:4/5;}
+    .hero-image figcaption{font-size:1rem;bottom:1.25rem;padding:0 1.25rem;}
+  }
+
+  /* ─── STYLING PAGE ─── */
+  .nav-links a.active{color:var(--burg);font-weight:600;}
+  .hero{padding:6rem 2rem 4rem;}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);}
+
+  .problem p + p{margin-top:1.1rem;}
+  .problem h2{margin-bottom:1.6rem;}
+
+  .plainlist{
+    list-style:none;text-align:left;max-width:680px;
+    margin:2rem auto 0;
+  }
+  .plainlist li{
+    font-family:var(--serif);font-size:1.08rem;
+    color:var(--obsidian);line-height:1.65;
+    padding:1rem 0 1rem 1.6rem;
+    border-bottom:0.5px solid var(--neutral-light);
+    position:relative;
+  }
+  .plainlist li:last-child{border-bottom:none;}
+  .plainlist li::before{
+    content:'✦';position:absolute;left:0;top:1rem;
+    color:var(--gold);font-size:0.8rem;
+  }
+
+  .faq{max-width:780px;margin:0 auto;}
+  .faq-head{text-align:center;margin-bottom:3rem;}
+  .faq-head h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2rem,4vw,2.8rem);
+    line-height:1.15;letter-spacing:-0.01em;
+  }
+  .faq-item{
+    border-bottom:0.5px solid var(--neutral-light);
+  }
+  .faq-item summary{
+    font-family:var(--sans);font-size:15px;font-weight:600;
+    letter-spacing:0.01em;
+    padding:1.35rem 2.5rem 1.35rem 0;
+    cursor:pointer;list-style:none;position:relative;
+    transition:color 0.2s;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary:hover{color:var(--burg);}
+  .faq-item summary::after{
+    content:'+';position:absolute;right:0;top:50%;
+    transform:translateY(-50%);
+    font-family:var(--sans);font-size:20px;font-weight:400;
+    color:var(--neutral-medium);transition:transform 0.2s,color 0.2s;
+  }
+  .faq-item[open] summary{color:var(--burg);}
+  .faq-item[open] summary::after{transform:translateY(-50%) rotate(45deg);color:var(--burg);}
+  .faq-body{padding:0 2.5rem 1.6rem 0;}
+  .faq-body p{
+    font-family:var(--serif);font-size:1.05rem;
+    color:var(--neutral-medium);line-height:1.7;
+  }
+
+  /* four steps, not three — 2x2 so nothing orphans */
+  .how .steps{grid-template-columns:repeat(2,1fr);gap:3rem 4rem;max-width:880px;margin:0 auto;}
+  @media(max-width:720px){.how .steps{grid-template-columns:1fr;gap:2rem;}}
+
+  .closing .btn-primary{margin-top:0.5rem;display:inline-block;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">armoires</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
+      <a href="/styling/" class="active">Styling</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <a href="https://www.armoires.io/blog/#waitlist" class="nav-cta">Join Waitlist</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Stylists on armoires</span>
+    <h1>A stylist who works from <span class="accent">your closet.</span></h1>
+    <p class="lede">Not a shopping list. Not a mood board you'll never open again. A real person, styling the clothes you already own.</p>
+    <div class="hero-ctas">
+      <a href="https://www.armoires.io/blog/#waitlist" class="btn-primary">Join the Waitlist</a>
+      <a href="#faq" class="btn-secondary">Read the FAQ</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="container problem">
+    <span class="eyebrow">The Idea.</span>
+    <h2>Most styling starts with a <span class="italic">shopping cart.</span></h2>
+    <p>Ours starts with your closet.</p>
+    <p>You already know the feeling. You own good things — things you picked out, paid for, liked enough to bring home — and you still stand there on a Tuesday with no idea what to do with any of it.</p>
+    <p>A stylist on armoires can see what's actually hanging in your closet, once you invite them in, and build looks out of it. Nothing to buy. Nothing to return. Just someone with better eyes than yours at 7:43 in the morning.</p>
+    <p>It's the thing we kept wishing existed while we were building everything else.</p>
+  </div>
+</section>
+
+<section class="how">
+  <div class="container">
+    <span class="eyebrow">How It Works.</span>
+    <h2>Four steps. No shopping.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01.</div>
+        <h4>Find someone.</h4>
+        <p>Browse stylists by specialty and read their work before you commit to anything. Everyone sets their own rate, and it's on their profile.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02.</div>
+        <h4>Send a brief.</h4>
+        <p>The occasion. The date. How you want to feel in it. Anything you've saved for inspiration. Takes a minute.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03.</div>
+        <h4>Vote on the looks.</h4>
+        <p>They pull options from your closet. You heart the ones you like, pass on the ones you don't. Be honest — it's how they learn what you actually wear.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 04.</div>
+        <h4>Wear it.</h4>
+        <p>The winning look lands in your app with notes on how to pull it off. Try it on virtually first if you're not sure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container problem">
+    <span class="eyebrow">The Money.</span>
+    <h2>You pay <span class="italic">after</span> someone says yes.</h2>
+    <ul class="plainlist">
+      <li>Sending a request costs nothing. A stylist has to accept it first.</li>
+      <li>Stylists set their own prices. You see the number before you send anything.</li>
+      <li>We hold your payment until the look is delivered, then give you 72 hours with it. Happy with it? Approve it and your stylist gets paid that day. Forget to? It releases on its own.</li>
+      <li>If something genuinely goes wrong, we'll refund you. We'd rather do that than argue about it.</li>
+      <li>Card details go straight to Stripe. We never see them, and neither does your stylist.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="faq">
+  <div class="container faq">
+    <div class="faq-head">
+      <span class="eyebrow">Questions.</span>
+      <h2>The things everyone asks.</h2>
+    </div>
+
+    <details class="faq-item">
+      <summary>Do I have to buy anything?</summary>
+      <div class="faq-body"><p>No. The entire point is the clothes you already own. If a stylist thinks one piece would unlock five outfits, they'll tell you — but nobody here earns a cut from a retailer, and you're never required to buy a thing.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can a stylist see my whole closet?</summary>
+      <div class="faq-body"><p>Only after you send them a request and they accept it. That's what opens the door, and you can close it again whenever you like. Nobody is browsing your closet uninvited.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What if I don't like what they send?</summary>
+      <div class="faq-body"><p>Vote it down. The voting isn't a formality — it's how your stylist works out what you'll actually put on your body versus what looks nice on a screen. And once a look is delivered, you can ask for tweaks instead of accepting it.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How long does it take?</summary>
+      <div class="faq-body"><p>Depends on your stylist and what you asked for. Each one sets how many clients they'll take in a week, so the people showing as available are genuinely available — not quietly buried under forty other briefs.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I use the same stylist again?</summary>
+      <div class="faq-body"><p>Yes, and it's better when you do. They keep everything from last time — what you loved, what you passed on, what you've worn since.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What's the virtual try-on?</summary>
+      <div class="faq-body"><p>The same try-on that's already in armoires. It puts the outfit on you, so you can see the thing before you wear it out the door.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I be a stylist on armoires?</summary>
+      <div class="faq-body"><p>We'd love that. You set up a studio — your tagline, what you're good at, your rate, and how many clients you want a week — and once you're approved you're in the directory. Payouts run through Stripe, so your bank details stay between you and them.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is this live yet?</summary>
+      <div class="faq-body"><p>Not yet. Styling is coming to armoires in private beta, and waitlist members hear about it first.</p></div>
+    </details>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <h2>Your closet, with <span class="italic">someone else's eyes</span> on it.</h2>
+    <p>Styling is rolling out to armoires members soon. Get on the list and we'll come find you.</p>
+    <a href="https://www.armoires.io/blog/#waitlist" class="btn-primary">Join the Waitlist</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="/" class="footer-logo">armoires</a>
+      <div class="footer-member">Member · NVIDIA Inception</div>
+    </div>
+    <div class="footer-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
+      <a href="/styling/">Styling</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacypolicy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Service</a>
+      <a href="mailto:support@armoires.io">Support</a>
+    </div>
+    <div class="footer-copy">© 2026 B Squared Tech LLC · armoires · Find Your Fit.</div>
+  </div>
+</footer>
+
+</body>
+</html>
