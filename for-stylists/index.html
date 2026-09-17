@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Stylists · armoires</title>
-<meta name="description" content="Style clients from the closets they already own. Set your own rate, keep your own schedule, and get paid when the look lands. How stylist accounts on armoires work.">
+<meta name="description" content="Style clients from the closets they already own. Set your own rate, keep your own schedule, get paid when the look lands. How stylist accounts on armoires work.">
 <link rel="canonical" href="https://www.armoires.io/for-stylists/">
 <meta property="og:title" content="For Stylists · armoires">
 <meta property="og:description" content="Get paid to style clothes people already own. No inventory, no pulls, no returns.">
@@ -69,7 +69,7 @@
     letter-spacing:0.02em;color:var(--obsidian);
     text-decoration:none;
   }
-  .nav-links{display:flex;gap:36px;}
+  .nav-links{display:flex;gap:26px;}
   .nav-links a{
     font-family:var(--sans);font-size:13px;font-weight:400;
     color:var(--obsidian);text-decoration:none;
@@ -85,7 +85,7 @@
     transition:background 0.2s;
   }
   .nav-cta:hover{background:var(--burg-deep);}
-  @media(max-width:720px){.nav-links{display:none;}}
+  @media(max-width:860px){.nav-links{display:none;}}
 
   section{padding:5.5rem 2rem;}
   .container{max-width:1080px;margin:0 auto;}
@@ -374,87 +374,48 @@
   .hero h1{font-size:clamp(2.5rem,5.6vw,4.4rem);}
   .problem p + p{margin-top:1.1rem;}
 
-  /* numbered sections: structural authority without the academic weight */
-  .numbered{padding:5rem 2rem;}
-  .numbered.alt{background:var(--blush-light);}
-  .sec-head{margin-bottom:3rem;max-width:760px;}
-  .sec-num{
-    font-family:var(--sans);font-size:12px;font-weight:600;
-    letter-spacing:0.16em;color:var(--gold-deep);
-    display:block;margin-bottom:0.9rem;
-  }
+  .band{background:var(--blush-light);}
+  .sec-head{margin-bottom:2.6rem;max-width:720px;}
   .sec-head h2{
     font-family:var(--serif);font-weight:600;
-    font-size:clamp(2rem,4vw,2.9rem);line-height:1.12;
-    letter-spacing:-0.01em;
-  }
-  .sec-sub{
-    font-family:var(--serif);font-style:italic;
-    font-size:1.1rem;color:var(--neutral-medium);margin-top:0.8rem;
+    font-size:clamp(2rem,4vw,2.9rem);line-height:1.12;letter-spacing:-0.01em;
   }
 
-  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--neutral-light);border:1px solid var(--neutral-light);}
+  /* 2-col card grid: hairline seams come from the grid gap, not a rule per row */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+         background:var(--neutral-light);border:1px solid var(--neutral-light);}
   .card{background:var(--cream);padding:2rem 1.8rem;}
-  .numbered.alt .card{background:var(--blush-light);}
+  .band .card{background:var(--blush-light);}
   .card h4{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0.02em;margin-bottom:0.7rem;}
   .card p{font-family:var(--serif);font-size:1.02rem;color:var(--neutral-medium);line-height:1.65;}
   @media(max-width:720px){.cards{grid-template-columns:1fr;}}
 
-  .flow-steps{display:grid;gap:2.2rem;max-width:780px;}
-  .fstep{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start;}
-  .fnum{
-    font-family:var(--sans);font-size:12px;font-weight:600;
-    letter-spacing:0.12em;color:var(--burg);
-    padding-top:0.25rem;
+  /* money: three grouped moments, one hairline each */
+  .ledger{max-width:720px;margin-bottom:2.6rem;}
+  .lgroup{border-top:1px solid var(--neutral-light);padding:1.5rem 0 0.4rem;}
+  .lwhen{
+    font-family:var(--sans);font-size:11px;font-weight:600;
+    letter-spacing:0.13em;text-transform:uppercase;color:var(--navy);
+    display:block;margin-bottom:0.6rem;
   }
-  .fstep h4{font-family:var(--sans);font-size:15px;font-weight:600;margin-bottom:0.5rem;}
-  .fstep p{font-family:var(--serif);font-size:1.05rem;color:var(--neutral-medium);line-height:1.7;}
+  .lgroup p{font-family:var(--serif);font-size:1.05rem;color:var(--neutral-medium);line-height:1.7;}
 
-  /* the money ledger: monospace so it reads as a statement, not prose */
-  .flow{
-    border-top:1px solid var(--neutral-light);
-    max-width:760px;margin-bottom:2.5rem;
-  }
-  .flow-row{
-    display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;
-    padding:0.95rem 0;border-bottom:1px solid var(--neutral-light);
-  }
-  .flow-k{font-family:var(--sans);font-size:14px;font-weight:600;}
-  .flow-v{
-    font-family:ui-monospace,'SF Mono',Menlo,monospace;
-    font-size:12.5px;color:var(--neutral-medium);
-    letter-spacing:0.01em;text-align:right;
-  }
-
-  .notes{max-width:760px;}
+  .notes{max-width:720px;}
   .notes p{font-family:var(--serif);font-size:1.02rem;color:var(--neutral-medium);line-height:1.7;margin-bottom:1rem;}
   .notes strong{color:var(--obsidian);font-weight:600;}
 
-  .standards{
-    width:100%;max-width:820px;border-collapse:collapse;margin-bottom:2rem;
-    font-family:var(--sans);
+  /* standards as value tiles, not a hairline spec table */
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+           background:var(--neutral-light);border:1px solid var(--neutral-light);margin-bottom:2.2rem;}
+  .metric{background:var(--cream);padding:1.9rem 1.6rem;}
+  .mval{
+    font-family:var(--serif);font-weight:600;font-size:2.4rem;
+    color:var(--burg);line-height:1;display:block;margin-bottom:0.8rem;
   }
-  .standards th{
-    text-align:left;font-size:11px;font-weight:600;
-    letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);
-    padding:0 1rem 0.9rem 0;border-bottom:1px solid var(--neutral-light);
-  }
-  .standards td{
-    font-size:14px;padding:1rem 1rem 1rem 0;
-    border-bottom:1px solid var(--neutral-light);vertical-align:top;
-  }
-  .standards td:nth-child(2){color:var(--neutral-medium);}
-  .standards td:nth-child(3){
-    font-family:ui-monospace,'SF Mono',Menlo,monospace;
-    font-size:12px;color:var(--neutral-medium);white-space:nowrap;
-  }
-  @media(max-width:620px){
-    .standards,.standards tbody,.standards tr,.standards td{display:block;width:100%;}
-    .standards thead{display:none;}
-    .standards tr{padding:1rem 0;border-bottom:1px solid var(--neutral-light);}
-    .standards td{border:none;padding:0.15rem 0;}
-    .standards td:first-child{font-weight:600;}
-  }
+  .metric h4{font-family:var(--sans);font-size:13.5px;font-weight:600;margin-bottom:0.45rem;}
+  .metric p{font-family:var(--serif);font-size:0.98rem;color:var(--neutral-medium);line-height:1.6;}
+  @media(max-width:860px){.metrics{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.metrics{grid-template-columns:1fr;}}
 
   .faq{max-width:780px;margin:0 auto;}
   .faq-head{text-align:center;margin-bottom:3rem;}
@@ -478,6 +439,12 @@
   .faq-body p{font-family:var(--serif);font-size:1.05rem;color:var(--neutral-medium);line-height:1.7;}
 
   .closing .btn-primary{margin-top:0.5rem;display:inline-block;}
+
+  /* skill 6.B: honour reduced-motion */
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:0.01ms !important;animation-duration:0.01ms !important;}
+  }
 </style>
 </head>
 <body>
@@ -487,6 +454,7 @@
     <a href="/" class="logo">armoires</a>
     <div class="nav-links">
       <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
       <a href="/styling/">Styling</a>
       <a href="/for-stylists/" class="active">For Stylists</a>
       <a href="/about/">About</a>
@@ -500,10 +468,10 @@
   <div class="container">
     <span class="eyebrow">For Stylists</span>
     <h1>Get paid to style clothes people <span class="accent">already own.</span></h1>
-    <p class="lede">No inventory. No pulls. No returns. You work from your client's closet, set your own rate, and get paid when the look lands.</p>
+    <p class="lede">No inventory, no pulls, no returns. Work from your client's closet, set your own rate, get paid when the look lands.</p>
     <div class="hero-ctas">
       <a href="https://www.armoires.io/blog/#waitlist" class="btn-primary">Apply to Style</a>
-      <a href="#money" class="btn-secondary">How You Get Paid</a>
+      <a href="#money" class="btn-secondary">How you get paid</a>
     </div>
   </div>
 </section>
@@ -512,101 +480,111 @@
 
 <section>
   <div class="container problem">
-    <span class="eyebrow">The Pitch.</span>
+    <span class="eyebrow">Why here.</span>
     <h2>Styling, without the <span class="italic">logistics.</span></h2>
-    <p>Most styling work is half taste and half freight. Sourcing. Pulling. Steaming. Shipping it back. The part you trained for gets squeezed into whatever time is left over.</p>
-    <p>On armoires the wardrobe is already digitized, already tagged, already sitting in the app. You open a client's closet, see every piece with its color and fabric and fit, and build looks out of what is there. The freight is gone. What is left is the work you actually wanted.</p>
+    <p>Most styling work is half taste and half freight. Sourcing, pulling, steaming, shipping it back. The part you trained for gets whatever time is left over.</p>
+    <p>Here the wardrobe is already digitized and tagged. You open a client's closet, see every piece with its color and fabric and fit, and build looks out of what's there. The freight is gone.</p>
   </div>
 </section>
 
-<section class="numbered">
+<section class="band">
   <div class="container">
     <div class="sec-head">
-      <span class="sec-num">§01</span>
-      <h2>Set up your studio.</h2>
-      <p class="sec-sub">Four decisions, then you are live.</p>
+      <span class="eyebrow">Your studio.</span>
+      <h2>Four things to decide.</h2>
     </div>
     <div class="cards">
       <div class="card">
         <h4>Your tagline</h4>
-        <p>One line on what you are for. This is the first thing a client reads, so make it sound like a person and not a resume.</p>
+        <p>One line on what you're for. It's the first thing a client reads, so make it sound like a person, not a resume.</p>
       </div>
       <div class="card">
         <h4>Your specialties</h4>
-        <p>Tailoring, color, occasion dressing, capsule building, whatever you are actually good at. Clients filter the directory by these.</p>
+        <p>Tailoring, color, occasion dressing, capsule building. Clients filter the directory by these, so be specific.</p>
       </div>
       <div class="card">
         <h4>Your rate</h4>
-        <p>You set the number. It sits on your profile where clients see it before they send you anything, so nobody is negotiating in a DM.</p>
+        <p>You set the number, and it sits on your profile where clients see it before they send anything. Nobody negotiates in a DM.</p>
       </div>
       <div class="card">
         <h4>Your capacity</h4>
-        <p>How many clients you want in a week. When you hit it you drop out of the available list. Say no by never being asked.</p>
+        <p>How many clients you want in a week. Hit it and you drop off the available list until you want back on.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="numbered alt">
+<section>
   <div class="container">
     <div class="sec-head">
-      <span class="sec-num">§02</span>
-      <h2>The work itself.</h2>
-      <p class="sec-sub">Brief in, look out. Usually four exchanges.</p>
+      <span class="eyebrow">The work.</span>
+      <h2>Brief in, look out.</h2>
     </div>
-    <div class="flow-steps">
-      <div class="fstep"><span class="fnum">01</span><div><h4>Read the brief.</h4><p>The occasion, the date, the budget, how they want to feel, and whatever they saved for inspiration. Accept it or pass. Passing costs you nothing except the booking.</p></div></div>
-      <div class="fstep"><span class="fnum">02</span><div><h4>Build the looks.</h4><p>Pull from their closet and send a few options. Not one perfect answer. Options, so they can react.</p></div></div>
-      <div class="fstep"><span class="fnum">03</span><div><h4>Read the votes.</h4><p>They heart and pass on each option. You see which tags keep winning, which is usually more honest than anything they wrote in the brief.</p></div></div>
-      <div class="fstep"><span class="fnum">04</span><div><h4>Deliver the winner.</h4><p>Final look, plus your notes on how to wear it. They can try it on virtually before the day. Then they rate you, and that rating is what the next client sees.</p></div></div>
+    <div class="cards">
+      <div class="card">
+        <h4>Read the brief</h4>
+        <p>Occasion, date, budget, how they want to feel, whatever they saved for inspiration. Accept it or pass. Passing costs you nothing.</p>
+      </div>
+      <div class="card">
+        <h4>Build the looks</h4>
+        <p>Pull from their closet and send a few options. Not one perfect answer. Options, so they have something to react to.</p>
+      </div>
+      <div class="card">
+        <h4>Read the votes</h4>
+        <p>They heart or pass on each one. You see which tags keep winning, which is usually more honest than what they wrote in the brief.</p>
+      </div>
+      <div class="card">
+        <h4>Deliver the winner</h4>
+        <p>Final look plus your notes on how to wear it. They can try it on virtually first. Then they rate you, and that's what the next client sees.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="numbered" id="money">
+<section class="band" id="money">
   <div class="container">
     <div class="sec-head">
-      <span class="sec-num">§03</span>
-      <h2>How the money moves.</h2>
-      <p class="sec-sub">You never work on spec. The client pays after you say yes.</p>
+      <span class="eyebrow">Getting paid.</span>
+      <h2>You never work on spec.</h2>
     </div>
-    <div class="flow">
-      <div class="flow-row"><span class="flow-k">You set your rate</span><span class="flow-v">visible on your profile</span></div>
-      <div class="flow-row"><span class="flow-k">Client sends a brief</span><span class="flow-v">nothing charged yet</span></div>
-      <div class="flow-row"><span class="flow-k">You accept</span><span class="flow-v">client is charged</span></div>
-      <div class="flow-row"><span class="flow-k">armoires holds the money</span><span class="flow-v">while you work</span></div>
-      <div class="flow-row"><span class="flow-k">You deliver the look</span><span class="flow-v">72 hour review window opens</span></div>
-      <div class="flow-row"><span class="flow-k">Client approves</span><span class="flow-v">paid out that day</span></div>
-      <div class="flow-row"><span class="flow-k">Client says nothing</span><span class="flow-v">released automatically at 72h</span></div>
+    <div class="ledger">
+      <div class="lgroup">
+        <span class="lwhen">Before you accept</span>
+        <p>Your rate sits on your profile. A client sends a brief and nothing is charged yet. You can pass without explaining yourself.</p>
+      </div>
+      <div class="lgroup">
+        <span class="lwhen">When you accept</span>
+        <p>The client is charged that moment. armoires holds the money while you work, so the job is funded before you start it.</p>
+      </div>
+      <div class="lgroup">
+        <span class="lwhen">After you deliver</span>
+        <p>A 72 hour review window opens. If the client approves, you're paid that day. If they say nothing, it releases to you automatically when the window closes.</p>
+      </div>
     </div>
     <div class="notes">
-      <p><strong>Payouts run on Stripe.</strong> You complete Stripe's onboarding once, with a W-9 or W-8 plus your identity and bank details. That information goes to Stripe, not to us. We never see your bank account and neither does your client.</p>
-      <p><strong>Taxes are yours to file.</strong> If your activity crosses the federal or state reporting thresholds for the year, a 1099-K gets issued for you automatically.</p>
-      <p><strong>There is a platform fee on each booking.</strong> The rate is written into your Stylist Agreement and shown to you before you accept a single client. You will never find out what it was after the fact.</p>
+      <p><strong>Payouts run on Stripe.</strong> You do their onboarding once, with a W-9 or W-8 plus identity and bank details. That goes to Stripe, not to us. We never see your bank account, and neither does your client.</p>
+      <p><strong>Taxes are yours to file.</strong> If your activity crosses the federal or state reporting thresholds for the year, a 1099-K is issued for you automatically.</p>
+      <p><strong>There's a platform fee on each booking.</strong> The rate is written into your Stylist Agreement and shown to you before you take a single client. You won't find out what it was after the fact.</p>
     </div>
   </div>
 </section>
 
-<section class="numbered alt">
+<section>
   <div class="container">
     <div class="sec-head">
-      <span class="sec-num">§04</span>
-      <h2>Standards, in numbers.</h2>
-      <p class="sec-sub">Published, not vibes. You can see exactly where you stand in your studio.</p>
+      <span class="eyebrow">Standards.</span>
+      <h2>The numbers we hold you to.</h2>
     </div>
-    <table class="standards">
-      <thead><tr><th>What we measure</th><th>Where it needs to be</th><th>Over</th></tr></thead>
-      <tbody>
-        <tr><td>Reply to a client</td><td>within 48 business hours, 90% of the time</td><td>30 days</td></tr>
-        <tr><td>Accept or decline a brief</td><td>within 72 hours, 90% of the time</td><td>30 days</td></tr>
-        <tr><td>Deliver on time</td><td>90% of the time</td><td>90 days</td></tr>
-        <tr><td>Average client rating</td><td>4.0 or better</td><td>90 days</td></tr>
-        <tr><td>Cancellation rate</td><td>under 10%</td><td>90 days</td></tr>
-        <tr><td>Refund rate</td><td>under 15%</td><td>90 days</td></tr>
-      </tbody>
-    </table>
+    <div class="metrics">
+      <div class="metric"><span class="mval">48h</span><h4>Reply to a client</h4><p>Business hours, 90% of the time, measured across 30 days.</p></div>
+      <div class="metric"><span class="mval">72h</span><h4>Accept or decline a brief</h4><p>90% of the time, measured across 30 days.</p></div>
+      <div class="metric"><span class="mval">90%</span><h4>Delivered on time</h4><p>Measured across 90 days.</p></div>
+      <div class="metric"><span class="mval">4.0</span><h4>Average client rating</h4><p>Or better, across 90 days.</p></div>
+      <div class="metric"><span class="mval">10%</span><h4>Cancellation ceiling</h4><p>Stay under it, across 90 days.</p></div>
+      <div class="metric"><span class="mval">15%</span><h4>Refund ceiling</h4><p>Stay under it, across 90 days.</p></div>
+    </div>
     <div class="notes">
-      <p>Nothing counts for your first 30 days after your first booking, so a slow start cannot hurt you. If you do slip below a line, you get 30 days to fix it before anything changes, and we tell you which number and by how much. No silent throttling.</p>
+      <p>None of it counts for your first 30 days after your first booking, so a slow start can't hurt you. Slip below a line later and you get 30 days to fix it, and we tell you which number and by how much.</p>
     </div>
   </div>
 </section>
@@ -622,7 +600,7 @@
 
     <details class="faq-item">
       <summary>Do I need my own clients to start?</summary>
-      <div class="faq-body"><p>No. You are listed in the directory and clients find you there. You can also invite people you already style, which is usually how the first month goes.</p></div>
+      <div class="faq-body"><p>No. You're listed in the directory and clients find you there. You can also invite people you already style, which is how most first months go.</p></div>
     </details>
 
     <details class="faq-item">
@@ -632,40 +610,40 @@
 
     <details class="faq-item">
       <summary>Do I have to shop for anyone?</summary>
-      <div class="faq-body"><p>No, and that is rather the point. You style what is already in the closet. If a client wants a recommendation you can give one, but nothing here is built to push you toward selling.</p></div>
+      <div class="faq-body"><p>No, and that's the point. You style what's already in the closet. You can recommend a piece if a client asks, but nothing here pushes you to sell.</p></div>
     </details>
 
     <details class="faq-item">
       <summary>What if a client is impossible to please?</summary>
-      <div class="faq-body"><p>It happens. The voting step usually catches a mismatch early, before you have sunk an afternoon into it. If it goes sideways after delivery, we can refund the client, and a single refund will not sink your standing. A pattern of them will.</p></div>
+      <div class="faq-body"><p>It happens. The voting step usually catches a mismatch early, before you've sunk an afternoon into it. If it goes sideways after delivery we can refund them, and one refund won't sink your standing. A pattern will.</p></div>
     </details>
 
     <details class="faq-item">
       <summary>Can I keep working with a client off the app?</summary>
-      <div class="faq-body"><p>Not for work that started here. It is in the agreement, and it is also the deal: we brought you the client and we carry the payment risk, the dispute handling, and the tax paperwork.</p></div>
+      <div class="faq-body"><p>Not for work that started here. It's in the agreement, and it's also the deal: we brought you the client and we carry the payment risk, the disputes, and the tax paperwork.</p></div>
     </details>
 
     <details class="faq-item">
       <summary>How much control do I have over my schedule?</summary>
-      <div class="faq-body"><p>Set your weekly capacity and flip yourself to unavailable whenever you want. You are not penalized for being full. You are penalized for leaving people hanging, which is a different thing.</p></div>
+      <div class="faq-body"><p>Set your weekly capacity and flip yourself unavailable whenever you want. Being full costs you nothing. Leaving people hanging does.</p></div>
     </details>
 
     <details class="faq-item">
       <summary>Who owns the looks I build?</summary>
-      <div class="faq-body"><p>They live in your portfolio and your client's app. Your lookbook is yours to show off, and it is the main thing new clients read before they book you.</p></div>
+      <div class="faq-body"><p>They live in your portfolio and in your client's app. Your lookbook is yours to show off, and it's the main thing new clients read before booking you.</p></div>
     </details>
 
     <details class="faq-item">
       <summary>When does this open?</summary>
-      <div class="faq-body"><p>Stylist accounts are rolling out with the private beta, and we are taking a small founding group first. Get on the list and we will reach out.</p></div>
+      <div class="faq-body"><p>Stylist accounts roll out with the private beta, and we're taking a small founding group first. Get on the list and we'll reach out.</p></div>
     </details>
   </div>
 </section>
 
 <section class="closing">
   <div class="container">
-    <h2>Bring the taste. We will handle <span class="italic">the rest.</span></h2>
-    <p>We are onboarding a small founding group of stylists before styling opens to everyone.</p>
+    <h2>Bring the taste. We'll handle <span class="italic">the rest.</span></h2>
+    <p>We're onboarding a small founding group of stylists before styling opens to everyone.</p>
     <a href="https://www.armoires.io/blog/#waitlist" class="btn-primary">Apply to Style</a>
   </div>
 </section>
@@ -678,6 +656,7 @@
     </div>
     <div class="footer-links">
       <a href="/#features">Features</a>
+      <a href="/#how">How It Works</a>
       <a href="/styling/">Styling</a>
       <a href="/for-stylists/">For Stylists</a>
       <a href="/about/">About</a>

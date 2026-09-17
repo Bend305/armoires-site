@@ -69,7 +69,7 @@
     letter-spacing:0.02em;color:var(--obsidian);
     text-decoration:none;
   }
-  .nav-links{display:flex;gap:36px;}
+  .nav-links{display:flex;gap:26px;}
   .nav-links a{
     font-family:var(--sans);font-size:13px;font-weight:400;
     color:var(--obsidian);text-decoration:none;
@@ -85,7 +85,7 @@
     transition:background 0.2s;
   }
   .nav-cta:hover{background:var(--burg-deep);}
-  @media(max-width:720px){.nav-links{display:none;}}
+  @media(max-width:860px){.nav-links{display:none;}}
 
   section{padding:5.5rem 2rem;}
   .container{max-width:1080px;margin:0 auto;}
@@ -431,6 +431,12 @@
   @media(max-width:720px){.how .steps{grid-template-columns:1fr;gap:2rem;}}
 
   .closing .btn-primary{margin-top:0.5rem;display:inline-block;}
+
+  /* skill 6.B: honour reduced-motion */
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:0.01ms !important;animation-duration:0.01ms !important;}
+  }
 </style>
 </head>
 <body>
@@ -442,6 +448,7 @@
       <a href="/#features">Features</a>
       <a href="/#how">How It Works</a>
       <a href="/styling/" class="active">Styling</a>
+      <a href="/for-stylists/">For Stylists</a>
       <a href="/about/">About</a>
       <a href="/blog/">Blog</a>
     </div>
@@ -480,22 +487,18 @@
     <h2>Four steps. No shopping.</h2>
     <div class="steps">
       <div class="step">
-        <div class="step-num">Step 01.</div>
         <h4>Find someone.</h4>
         <p>Browse stylists by specialty and read their work before you commit to anything. Everyone sets their own rate, and it's on their profile.</p>
       </div>
       <div class="step">
-        <div class="step-num">Step 02.</div>
         <h4>Send a brief.</h4>
         <p>The occasion. The date. How you want to feel in it. Anything you've saved for inspiration. Takes a minute.</p>
       </div>
       <div class="step">
-        <div class="step-num">Step 03.</div>
         <h4>Vote on the looks.</h4>
         <p>They pull options from your closet. You heart the ones you like, pass on the ones you don't. Be honest. It's how they learn what you actually wear.</p>
       </div>
       <div class="step">
-        <div class="step-num">Step 04.</div>
         <h4>Wear it.</h4>
         <p>The winning look lands in your app with notes on how to pull it off. Try it on virtually first if you're not sure.</p>
       </div>
@@ -528,7 +531,7 @@
 
     <details class="faq-item">
       <summary>Do I have to buy anything?</summary>
-      <div class="faq-body"><p>No. The entire point is the clothes you already own. If a stylist thinks one piece would unlock five outfits, they'll tell you, but nobody here earns a cut from a retailer, and you're never required to buy a thing.</p></div>
+      <div class="faq-body"><p>No. The entire point is the clothes you already own. If a stylist thinks one piece would open up five outfits, they'll tell you, but nobody here earns a cut from a retailer, and you're never required to buy a thing.</p></div>
     </details>
 
     <details class="faq-item">
@@ -586,6 +589,7 @@
       <a href="/#features">Features</a>
       <a href="/#how">How It Works</a>
       <a href="/styling/">Styling</a>
+      <a href="/for-stylists/">For Stylists</a>
       <a href="/about/">About</a>
       <a href="/blog/">Blog</a>
       <a href="/privacypolicy/">Privacy Policy</a>
